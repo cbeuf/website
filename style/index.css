@@ -1,0 +1,85 @@
+:root {
+    --rhythm: 1.4rem;
+    --line-length: 40rem;
+}
+
+html { line-height: var(--rhythm); }
+
+content {
+    display: block;
+    overflow: hidden;
+
+    max-width: min(calc(100vw - (2* var(--rhythm))), var(--line-length));
+    width: 100%;
+
+    margin-left: auto;
+    margin-right: auto;
+}
+
+content h1 {
+    margin-top: calc(var(--rhythm) * 4); /* x 2.5 */
+    margin-bottom: calc(var(--rhythm) * .5);
+}
+
+content #subtitle {
+    margin-top: 0;
+}
+
+content #blurb {
+    margin-top: calc(var(--rhythm) * 1);
+}
+
+img {
+    max-width: 100%;
+    object-fit: cover;
+    border: 1px solid rgba(0, 0, 0, 0.2);;
+    border-radius: 0.75em;
+    transform: perspective(1000px) rotateY(0deg);
+    transition: transform 0.3s;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+}
+
+/* silly */
+.doodle { 
+    image-rendering: pixelated; 
+    width: 100%;
+    user-select: none;
+    pointer-events: none;
+    border: none;
+}
+
+img:hover { transform: perspective(1000px) rotateY(10deg); }
+
+
+content:before {
+    --size: 45px;
+    --line: color-mix(in lch, var(--dreary), transparent 80%);
+    content: '';
+    height: 100%;
+    width: 100%;
+    position: absolute;
+
+    opacity: 70%;
+
+    /* Using halftone.svg once, no repeat */
+    background-image: url('/assets/halftone.svg'); /* Path to your halftone SVG */
+    background-size: contain;
+    background-repeat: no-repeat; /* Prevent the pattern from repeating */
+    
+
+    mask: linear-gradient(320deg, transparent 50%, white);
+
+    
+    top: -.5em;
+    left: 0;
+    transform-style: flat;
+    pointer-events: none;
+    z-index: 0;
+}
+
+@media (min-width: 800px) {
+    content:before {
+        position: fixed;
+    }
+}

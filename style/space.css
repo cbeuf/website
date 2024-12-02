@@ -1,0 +1,30 @@
+/* page custom styling,,,, :3 */
+
+/* caption */
+.caption { margin-top: 0; margin-left: 0.65em; user-select: none;}
+#space > div > .caption { text-align: center; }
+#space > div > div > .caption { text-align: center; }
+#space > div > div > div > .caption { text-align: center; }
+
+/* more fun image interactivity */
+div:nth-child(odd):hover > img { transform: perspective(1000px) rotateY(-10deg);}
+div:nth-child(even):hover > img { transform: perspective(1000px) rotateY(10deg);}
+
+@media all and (min-width: 800px) {
+    #space { display: flex; flex-wrap: wrap; justify-content: space-between; }
+    #space > div { margin: 0 2%; width: 28%; }
+    
+    #space > #a { width: 45%; }
+    #space > #c { width: 45%; }
+    #space > #b { width: 45%; }
+
+    #space > #d { width: 45%; }
+    #space > #e { width: 40%; }
+
+    #space > #f { width: 45%; }
+    #space > #g { width: 40%; }
+
+    #space > #h { width: 45%; margin-top: -8em;}
+    #space > #i { width: 45%; }
+
+}
